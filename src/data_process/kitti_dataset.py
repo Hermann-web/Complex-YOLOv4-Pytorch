@@ -51,7 +51,9 @@ class KittiDataset(Dataset):
         self.calib_dir = os.path.join(self.dataset_dir, sub_folder, "calib")
         self.label_dir = os.path.join(self.dataset_dir, sub_folder, "label_2")
         split_txt_path = os.path.join(self.dataset_dir, 'ImageSets', '{}.txt'.format(mode))
+        print("split_txt_path = ",split_txt_path)
         self.image_idx_list = [x.strip() for x in open(split_txt_path).readlines()]
+        print("self.image_idx_list:",self.image_idx_list[:5])
 
         if self.is_test:
             self.sample_id_list = [int(sample_id) for sample_id in self.image_idx_list]
